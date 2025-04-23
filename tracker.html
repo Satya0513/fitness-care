@@ -34,7 +34,7 @@
     <div class="container mx-auto p-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold"><i class="fas fa-dumbbell mr-2"></i>FitnessCare</h1>
       <nav class="hidden md:flex space-x-6">
-        <a href="home3.html" class="hover:border-b-2 hover:border-white transition">Home</a>
+        <a href="fit.html" class="hover:border-b-2 hover:border-white transition">Home</a>
         <a href="about.html" class="hover:border-b-2 hover:border-white transition">About</a>
         <a href="diet.html" class="hover:border-b-2 hover:border-white transition">Workouts & Diet</a>
         <a href="review2.html" class="hover:border-b-2 hover:border-white transition">Reviews</a>
@@ -270,7 +270,7 @@
         <div>
           <h5 class="font-bold mb-4">Quick Links</h5>
           <ul class="space-y-2">
-            <li><a href="home3.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+            <li><a href="fit.html" class="text-gray-400 hover:text-white transition">Home</a></li>
             <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
             <li><a href="diet.html" class="text-gray-400 hover:text-white transition">Programs</a></li>
             <li><a href="review2.html" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
@@ -636,4 +636,210 @@
                 <p>Oatmeal (1 cup) with whey protein, banana, peanut butter</p>
                 <p class="font-semibold mt-2">Lunch:</p>
                 <p>Lean beef (200g), brown rice (1 cup), mixed vegetables</p>
-                <p class="font-semibold mt-2">Dinner:</p
+                <p class="font-semibold mt-2">Dinner:</p>
+                                <p>Grilled chicken (200g), roasted potatoes, broccoli</p>
+                <p class="font-semibold mt-2">Post-Workout:</p>
+                <p>Whey protein shake with banana</p>
+                <p class="font-semibold mt-2">Snacks:</p>
+                <p>Cottage cheese with fruit, whole grain toast with almond butter</p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Key Recommendations</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Eat every 3-4 hours to maintain positive nitrogen balance</li>
+                  <li>Consume protein within 1 hour post-workout</li>
+                  <li>Include carbs around workouts for energy and recovery</li>
+                  <li>Choose nutrient-dense foods to meet calorie needs</li>
+                  <li>Stay hydrated - aim for 3L water daily</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        `;
+      } 
+      else {
+        plan = `
+          <div class="mb-6">
+            <h4 class="font-bold text-lg mb-2 text-green-600">Maintenance Nutrition Plan</h4>
+            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Macronutrient Breakdown:</h5>
+              <ul class="list-disc pl-5 space-y-1 mb-3">
+                <li><strong>Protein:</strong> ${protein} (maintains muscle)</li>
+                <li><strong>Carbs:</strong> 35-45% of calories (balanced energy)</li>
+                <li><strong>Fats:</strong> 25-35% of calories (hormone health)</li>
+              </ul>
+              <p>Target: ${Math.round(calorieGoal-200)}-${Math.round(calorieGoal+200)} kcal/day</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Sample Meal Plan</h5>
+                <p class="font-semibold">Breakfast:</p>
+                <p>Greek yogurt with granola and mixed berries</p>
+                <p class="font-semibold mt-2">Lunch:</p>
+                <p>Grilled chicken wrap with whole wheat tortilla, side salad</p>
+                <p class="font-semibold mt-2">Dinner:</p>
+                <p>Salmon (150g), quinoa, roasted Brussels sprouts</p>
+                <p class="font-semibold mt-2">Snacks:</p>
+                <p>Handful of nuts, fruit with cheese, protein smoothie</p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Key Recommendations</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Focus on balanced meals with protein, carbs and fats</li>
+                  <li>Include variety to ensure micronutrient needs are met</li>
+                  <li>Practice portion control to maintain weight</li>
+                  <li>Allow for occasional treats in moderation</li>
+                  <li>Listen to hunger/fullness cues</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      
+      dietContent.innerHTML = plan;
+    }
+    
+    // Generate progress tips based on user inputs
+    function generateProgressTips(goal, bmiCategory) {
+      const tipsContent = document.getElementById('tips-content');
+      let tips = '';
+      
+      if (goal === 'weight-loss') {
+        tips = `
+          <div class="mb-6">
+            <h4 class="font-bold text-lg mb-2 text-green-600">Maximizing Fat Loss</h4>
+            <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Nutrition Tips:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Track your food intake consistently (use our app or a journal)</li>
+                <li>Increase protein intake to preserve muscle while in a calorie deficit</li>
+                <li>Focus on high-volume, low-calorie foods (vegetables, lean proteins)</li>
+                <li>Limit liquid calories (soda, juice, alcohol)</li>
+                <li>Practice intermittent fasting if it fits your lifestyle</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Exercise Tips:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Combine cardio and strength training for best results</li>
+                <li>Increase NEAT (non-exercise activity thermogenesis) - walk more!</li>
+                <li>Progressively challenge yourself in workouts</li>
+                <li>Get at least 7-8 hours of quality sleep nightly</li>
+                <li>Manage stress to prevent cortisol-related fat retention</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <h5 class="font-medium mb-2">Mindset & Motivation:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Focus on non-scale victories (energy levels, measurements)</li>
+                <li>Allow for occasional diet breaks to prevent metabolic adaptation</li>
+                <li>Be patient - aim for 0.5-1kg loss per week</li>
+                <li>Take progress photos monthly to track changes</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      } 
+      else if (goal === 'muscle-gain') {
+        tips = `
+          <div class="mb-6">
+            <h4 class="font-bold text-lg mb-2 text-green-600">Optimizing Muscle Growth</h4>
+            <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Nutrition Tips:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Eat in a consistent calorie surplus (200-500 kcal above maintenance)</li>
+                <li>Prioritize protein timing (especially post-workout)</li>
+                <li>Include carbs around workouts for energy and recovery</li>
+                <li>Don't neglect healthy fats (important for hormone production)</li>
+                <li>Consider creatine supplementation (3-5g daily)</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Training Tips:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Focus on progressive overload (gradually increase weight/reps)</li>
+                <li>Train each muscle group 2-3x per week</li>
+                <li>Include both compound and isolation exercises</li>
+                <li>Control eccentric (lowering) phase of movements</li>
+                <li>Get adequate rest between sets (2-3 minutes for heavy lifts)</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <h5 class="font-medium mb-2">Recovery Tips:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Aim for 7-9 hours of sleep nightly (muscles grow at rest)</li>
+                <li>Stay hydrated (water supports protein synthesis)</li>
+                <li>Consider deload weeks every 6-8 weeks</li>
+                <li>Manage stress to optimize anabolic hormone levels</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      } 
+      else {
+        tips = `
+          <div class="mb-6">
+            <h4 class="font-bold text-lg mb-2 text-green-600">Maintaining Your Physique</h4>
+            <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Nutrition Tips:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Practice mindful eating - listen to hunger/fullness cues</li>
+                <li>Maintain balanced macronutrients for overall health</li>
+                <li>Allow for flexibility while keeping portions in check</li>
+                <li>Stay hydrated - sometimes thirst is mistaken for hunger</li>
+                <li>Continue to prioritize protein intake</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Exercise Tips:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Mix up your routine to prevent plateaus and boredom</li>
+                <li>Include both strength and cardiovascular training</li>
+                <li>Focus on movement quality and enjoyment</li>
+                <li>Try new activities to stay engaged (yoga, sports, hiking)</li>
+                <li>Listen to your body - rest when needed</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <h5 class="font-medium mb-2">Lifestyle Tips:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Monitor weight/measurements periodically to catch changes early</li>
+                <li>Manage stress through relaxation techniques</li>
+                <li>Maintain social connections - fitness can be communal</li>
+                <li>Celebrate your consistency - maintenance is an achievement!</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      }
+      
+      // Add BMI-specific tips if relevant
+      if (bmiCategory === 'Underweight') {
+        tips += `
+          <div class="bg-red-50 p-4 rounded-lg">
+            <h5 class="font-medium mb-2 text-red-600">BMI Consideration:</h5>
+            <p>Your BMI suggests you may be underweight. If muscle gain is your goal, focus on a gradual calorie surplus with strength training. Consult a healthcare professional if you have concerns about being underweight.</p>
+          </div>
+        `;
+      } else if (bmiCategory === 'Overweight' || bmiCategory === 'Obese') {
+        tips += `
+          <div class="bg-red-50 p-4 rounded-lg">
+            <h5 class="font-medium mb-2 text-red-600">BMI Consideration:</h5>
+            <p>Your BMI suggests you may be overweight. Focus on sustainable lifestyle changes rather than extreme diets. Even modest weight loss (5-10% of body weight) can significantly improve health markers.</p>
+          </div>
+        `;
+      }
+      
+      tipsContent.innerHTML = tips;
+    }
+    
+    // Save button functionality
+    document.getElementById('save-btn').addEventListener('click', function() {
+      // In a real app, this would save to a database
+      alert('Measurements saved to your profile! You can track your progress over time.');
+    });
+  </script>
+</body>
+</html>
