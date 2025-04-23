@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitnessCare | Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .scroll-section {
+      scroll-margin-top: 80px;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Fixed Header -->
+  <header class="bg-green-600 text-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold"><i class="fas fa-dumbbell mr-2"></i>FitnessCare</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="fit.html" class="font-bold border-b-2 border-white">Home</a>
+        <a href="about.html" class="hover:border-b-2 hover:border-white transition">About</a>
+        <a href="diet.html" class="hover:border-b-2 hover:border-white transition">Workouts & Diet</a>
+        <a href="review2.html" class="hover:border-b-2 hover:border-white transition">Reviews</a>
+        <a href="contact4.html" class="hover:border-b-2 hover:border-white transition">Contact</a>
+        <a href="dumb2.html" class="bg-white text-green-600 px-3 py-1 rounded hover:bg-gray-100 transition">Login / Sign Up</a>
+      </nav>
+      <button class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section with Parallax -->
+  <section class="parallax bg-gray-900 text-white pt-32 pb-20" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-5xl font-extrabold mb-6 animate-pulse">Transform Your Life</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Your journey to a healthier, stronger you begins here. Discover workouts, diet plans, and expert support tailored to your fitness goals.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="dumb2.html" class="bg-green-600 text-white px-8 py-3 rounded-full font-bold hover:bg-green-700 transition transform hover:scale-105">Join Now</a>
+        <a href="#features" class="bg-white text-green-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition transform hover:scale-105">Explore</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="bg-gray-100 py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="text-4xl font-bold text-green-600 mb-2">10K+</div>
+          <div class="text-gray-600">Active Members</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="text-4xl font-bold text-green-600 mb-2">50+</div>
+          <div class="text-gray-600">Expert Trainers</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="text-4xl font-bold text-green-600 mb-2">100+</div>
+          <div class="text-gray-600">Workout Plans</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="text-4xl font-bold text-green-600 mb-2">24/7</div>
+          <div class="text-gray-600">Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="scroll-section py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h3 class="text-4xl font-bold text-center mb-4">Why Choose FitnessCare?</h3>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">We provide everything you need to achieve your fitness goals with personalized support and expert guidance.</p>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-heartbeat text-2xl text-green-600"></i>
+          </div>
+          <h4 class="font-bold text-xl mb-3 text-center">Personalized Plans</h4>
+          <p class="text-gray-600 text-center">Workouts and diets designed just for your body type, fitness goals, and daily schedule. Our AI-powered system adapts as you progress.</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-apple-alt text-2xl text-green-600"></i>
+          </div>
+          <h4 class="font-bold text-xl mb-3 text-center">Nutrition Guidance</h4>
+          <p class="text-gray-600 text-center">Get healthy, sustainable meal recommendations with expert advice. Track macros, calories, and nutrients with our easy-to-use tools.</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-user-friends text-2xl text-green-600"></i>
+          </div>
+          <h4 class="font-bold text-xl mb-3 text-center">Community Support</h4>
+          <p class="text-gray-600 text-center">Join our vibrant community of fitness enthusiasts. Share progress, get motivation, and participate in challenges to stay accountable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center mb-12">Success Stories</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Sarah J.</h4>
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600">"FitnessCare completely transformed my approach to health. I lost 25lbs in 3 months and have never felt better!"</p>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Mike T." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Mike T.</h4>
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600">"The personalized workout plans helped me gain 15lbs of muscle. The trainers are incredibly knowledgeable."</p>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya K." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Priya K.</h4>
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600">"I love the community aspect. The challenges keep me motivated and the nutrition guides are so helpful!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-20 bg-gradient-to-r from-green-500 to-green-700 text-white text-center">
+    <div class="container mx-auto px-4">
+      <h3 class="text-4xl font-bold mb-6">Ready to Transform Your Life?</h3>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of members who have already started their fitness journey with FitnessCare.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="dumb2.html" class="bg-white text-green-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">Start Free Trial</a>
+        <a href="contact4.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-green-600 transition transform hover:scale-105">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h4 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-dumbbell mr-2"></i>FitnessCare
+          </h4>
+          <p class="text-gray-400">Your complete fitness solution for a healthier, happier life.</p>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">Quick Links</h5>
+          <ul class="space-y-2">
+            <li><a href="fit.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+            <li><a href="diet.html" class="text-gray-400 hover:text-white transition">Programs</a></li>
+            <li><a href="review2.html" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">Support</h5>
+          <ul class="space-y-2">
+            <li><a href="contact4.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">Connect With Us</h5>
+          <div class="flex space-x-4 mb-4">
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-youtube"></i></a>
+          </div>
+          <p class="text-gray-400">Subscribe to our newsletter</p>
+          <div class="flex mt-2">
+            <input type="email" placeholder="Your email" class="px-3 py-2 rounded-l text-gray-800 w-full">
+            <button class="bg-green-600 px-4 rounded-r"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 FitnessCare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

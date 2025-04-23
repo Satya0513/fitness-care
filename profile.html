@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitnessCare | My Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .progress-ring__circle {
+      transition: stroke-dashoffset 0.5s;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Fixed Header -->
+  <header class="bg-green-600 text-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold"><i class="fas fa-dumbbell mr-2"></i>FitnessCare</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="fit.html" class="hover:border-b-2 hover:border-white transition">Home</a>
+        <a href="about.html" class="hover:border-b-2 hover:border-white transition">About</a>
+        <a href="diet.html" class="hover:border-b-2 hover:border-white transition">Workouts & Diet</a>
+        <a href="review2.html" class="hover:border-b-2 hover:border-white transition">Reviews</a>
+        <a href="contact4.html" class="hover:border-b-2 hover:border-white transition">Contact</a>
+        <a href="dumb2.html" class="hover:border-b-2 hover:border-white transition">login/sign up</a>
+        <a href="profile.html" class="hover:border-b-2 hover:border-white transition">profile</a>
+        
+        <div class="relative group">
+          <button class="flex items-center space-x-1 focus:outline-none">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" class="w-8 h-8 rounded-full border-2 border-white">
+            <span class="font-medium">Sarah</span>
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100">My Profile</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100">Settings</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100">Logout</a>
+          </div>
+        </div>
+      </nav>
+      <button class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24 pb-12">
+    <div class="container mx-auto px-4">
+      <!-- Profile Header -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+        <div class="bg-green-600 h-32"></div>
+        <div class="px-6 py-4 relative">
+          <div class="absolute -top-16 left-6 border-4 border-white rounded-full">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" class="w-32 h-32 rounded-full">
+          </div>
+          <div class="ml-40">
+            <h2 class="text-2xl font-bold">Sarah Johnson</h2>
+            <p class="text-gray-600 mb-2">Premium Member since June 2024</p>
+            <div class="flex space-x-2">
+              <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Weight Loss</span>
+              <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Nutrition</span>
+              <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Yoga</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 py-4 border-t border-gray-200 flex justify-between items-center">
+          <div class="flex space-x-4">
+            <div class="text-center">
+              <div class="text-xl font-bold">28</div>
+              <div class="text-gray-600 text-sm">Workouts</div>
+            </div>
+            <div class="text-center">
+              <div class="text-xl font-bold">14</div>
+              <div class="text-gray-600 text-sm">Meals Logged</div>
+            </div>
+            <div class="text-center">
+              <div class="text-xl font-bold">87%</div>
+              <div class="text-gray-600 text-sm">Goal Progress</div>
+            </div>
+          </div>
+          <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+            <i class="fas fa-edit mr-2"></i>Edit Profile
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+        <!-- Fitness Goals -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-bullseye text-green-600 mr-2"></i> My Goals
+          </h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-sm font-medium">Weight Loss</span>
+                <span class="text-sm text-gray-600">8/10kg</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-green-600 h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-sm font-medium">Muscle Gain</span>
+                <span class="text-sm text-gray-600">3/5kg</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 60%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-sm font-medium">Workouts</span>
+                <span class="text-sm text-gray-600">28/30 this month</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-purple-600 h-2.5 rounded-full" style="width: 93%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Ring -->
+        <div class="bg-white rounded-xl shadow-md p-6 flex flex-col items-center justify-center">
+          <h3 class="text-xl font-bold mb-4">Overall Progress</h3>
+          <div class="relative w-40 h-40 mb-4">
+            <svg class="w-full h-full" viewBox="0 0 100 100">
+              <circle class="text-gray-200" stroke-width="8" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
+              <circle class="text-green-600 progress-ring__circle" stroke-width="8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" stroke-dasharray="251.2" stroke-dashoffset="32.656" />
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-2xl font-bold">87%</span>
+            </div>
+          </div>
+          <p class="text-center text-gray-600">You're on track! Keep going to reach your goals.</p>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-history text-green-600 mr-2"></i> Recent Activity
+          </h3>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="bg-green-100 p-2 rounded-full mr-3">
+                <i class="fas fa-running text-green-600"></i>
+              </div>
+              <div>
+                <p class="font-medium">Completed Full Body Workout</p>
+                <p class="text-sm text-gray-600">Today, 7:30 AM</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i class="fas fa-apple-alt text-blue-600"></i>
+              </div>
+              <div>
+                <p class="font-medium">Logged Breakfast: Protein Shake</p>
+                <p class="text-sm text-gray-600">Today, 8:15 AM</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-purple-100 p-2 rounded-full mr-3">
+                <i class="fas fa-weight text-purple-600"></i>
+              </div>
+              <div>
+                <p class="font-medium">Updated Weight: 62kg</p>
+                <p class="text-sm text-gray-600">Yesterday</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="bg-white rounded-t-xl shadow-md overflow-hidden mb-1">
+        <div class="flex border-b border-gray-200">
+          <button class="tab-btn py-4 px-6 font-medium border-b-2 border-green-600 text-green-600" data-tab="workouts">
+            <i class="fas fa-dumbbell mr-2"></i>Workouts
+          </button>
+          <button class="tab-btn py-4 px-6 font-medium text-gray-600 hover:text-green-600" data-tab="nutrition">
+            <i class="fas fa-utensils mr-2"></i>Nutrition
+          </button>
+          <button class="tab-btn py-4 px-6 font-medium text-gray-600 hover:text-green-600" data-tab="progress">
+            <i class="fas fa-chart-line mr-2"></i>Progress
+          </button>
+          <button class="tab-btn py-4 px-6 font-medium text-gray-600 hover:text-green-600" data-tab="settings">
+            <i class="fas fa-cog mr-2"></i>Settings
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Contents -->
+      <div class="bg-white rounded-b-xl shadow-md p-6 mb-8">
+        <!-- Workouts Tab -->
+        <div id="workouts" class="tab-content active">
+          <h3 class="text-xl font-bold mb-4">My Workout Plan</h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Day</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Workout</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-medium">Monday</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Full Body Strength</td>
+                  <td class="px-6 py-4 whitespace-nowrap">45 min</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Completed</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-medium">Tuesday</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Cardio & Core</td>
+                  <td class="px-6 py-4 whitespace-nowrap">30 min</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-medium">Wednesday</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Yoga & Mobility</td>
+                  <td class="px-6 py-4 whitespace-nowrap">40 min</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-medium">Thursday</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Lower Body Focus</td>
+                  <td class="px-6 py-4 whitespace-nowrap">50 min</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-6">
+            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <i class="fas fa-plus mr-2"></i>Add Custom Workout
+            </button>
+          </div>
+        </div>
+
+        <!-- Nutrition Tab -->
+        <div id="nutrition" class="tab-content">
+          <h3 class="text-xl font-bold mb-4">Nutrition Dashboard</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div class="bg-green-50 rounded-lg p-4">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-medium">Calories</h4>
+                <span class="text-sm bg-white px-2 py-1 rounded">Today</span>
+              </div>
+              <div class="text-3xl font-bold mb-1">1,450</div>
+              <div class="text-sm text-gray-600">of 1,800 goal</div>
+              <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div class="bg-green-600 h-2 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="bg-blue-50 rounded-lg p-4">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-medium">Protein</h4>
+                <span class="text-sm bg-white px-2 py-1 rounded">Today</span>
+              </div>
+              <div class="text-3xl font-bold mb-1">112g</div>
+              <div class="text-sm text-gray-600">of 120g goal</div>
+              <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div class="bg-blue-600 h-2 rounded-full" style="width: 93%"></div>
+              </div>
+            </div>
+            <div class="bg-purple-50 rounded-lg p-4">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-medium">Water</h4>
+                <span class="text-sm bg-white px-2 py-1 rounded">Today</span>
+              </div>
+              <div class="text-3xl font-bold mb-1">1.8L</div>
+              <div class="text-sm text-gray-600">of 2.5L goal</div>
+              <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div class="bg-purple-600 h-2 rounded-full" style="width: 72%"></div>
+              </div>
+            </div>
+          </div>
+          <h4 class="font-bold mb-3">Recent Meals</h4>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+              <div>
+                <p class="font-medium">Breakfast - Protein Shake</p>
+                <p class="text-sm text-gray-600">Banana, protein powder, almond milk</p>
+              </div>
+              <div class="text-right">
+                <p class="font-medium">320 kcal</p>
+                <p class="text-sm text-gray-600">28g protein</p>
+              </div>
+            </div>
+            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+              <div>
+                <p class="font-medium">Lunch - Grilled Chicken Salad</p>
+                <p class="text-sm text-gray-600">Chicken, mixed greens, avocado</p>
+              </div>
+              <div class="text-right">
+                <p class="font-medium">450 kcal</p>
+                <p class="text-sm text-gray-600">42g protein</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6">
+            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <i class="fas fa-plus mr-2"></i>Log Meal
+            </button>
+          </div>
+        </div>
+
+        <!-- Progress Tab -->
+        <div id="progress" class="tab-content">
+          <h3 class="text-xl font-bold mb-4">Progress Tracking</h3>
+          <div class="mb-6">
+            <div class="flex justify-between mb-2">
+              <h4 class="font-medium">Weight Progress</h4>
+              <span class="text-sm text-gray-600">Last 30 days</span>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <img src="https://via.placeholder.com/800x200?text=Weight+Progress+Chart" alt="Weight Progress" class="w-full h-auto">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-medium mb-2">Measurements</h4>
+              <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">Waist</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">72cm</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm text-green-600">-3cm</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">Hips</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">94cm</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm text-green-600">-2cm</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">Chest</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">88cm</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm text-blue-600">+1cm</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">Arms</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">28cm</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm text-blue-600">+0.5cm</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium mb-2">Strength Progress</h4>
+              <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">Squat</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">65kg</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm text-blue-600">+5kg</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">Bench Press</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">40kg</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm text-blue-600">+2.5kg</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">Deadlift</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">80kg</td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm text-blue-600">+7.5kg</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6">
+            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <i class="fas fa-plus mr-2"></i>Add Progress Update
+            </button>
+          </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings" class="tab-content">
+          <h3 class="text-xl font-bold mb-4">Account Settings</h3>
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h4 class="font-bold mb-3">Personal Information</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                  <input type="text" value="Sarah" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                  <input type="text" value="Johnson" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <input type="email" value="sarah.johnson@example.com" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                  <input type="tel" value="+1 (555) 123-4567" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h4 class="font-bold mb-3">Fitness Goals</h4>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Primary Goal</label>
+                  <select class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                    <option>Weight Loss</option>
+                    <option>Muscle Gain</option>
+                    <option>Maintenance</option>
+                    <option>Endurance</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Activity Level</label>
+                  <select class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                    <option>Moderately Active</option>
+                    <option>Sedentary</option>
+                    <option>Lightly Active</option>
+                    <option>Very Active</option>
+                    <option>Extremely Active</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h4 class="font-bold mb-3">Change Password</h4>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                  <input type="password" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                  <input type="password" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+                  <input type="password" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-end">
+              <button class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
+                Save Changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h4 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-dumbbell mr-2"></i>FitnessCare
+          </h4>
+          <p class="text-gray-400">Your complete fitness solution for a healthier, happier life.</p>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">Quick Links</h5>
+          <ul class="space-y-2">
+            <li><a href="fit.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+            <li><a href="diet.html" class="text-gray-400 hover:text-white transition">Programs</a></li>
+            <li><a href="review2.html" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">Support</h5>
+          <ul class="space-y-2">
+            <li><a href="contact4.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">Connect With Us</h5>
+          <div class="flex space-x-4 mb-4">
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 FitnessCare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab functionality
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and contents
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.classList.remove('border-b-2', 'border-green-600', 'text-green-600');
+          btn.classList.add('text-gray-600', 'hover:text-green-600');
+        });
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        
+        // Add active class to clicked button and corresponding content
+        button.classList.add('border-b-2', 'border-green-600', 'text-green-600');
+        button.classList.remove('text-gray-600', 'hover:text-green-600');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Progress ring animation
+    const circle = document.querySelector('.progress-ring__circle');
+    const radius = circle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+    circle.style.strokeDasharray = circumference;
+    circle.style.strokeDashoffset = circumference - (0.87 * circumference);
+  </script>
+</body>
+</html>
