@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitnessCare | Body Measurement Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .progress-bar {
+      transition: width 0.5s ease-in-out;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .measurement-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-green-600 text-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold"><i class="fas fa-dumbbell mr-2"></i>FitnessCare</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="home3.html" class="hover:border-b-2 hover:border-white transition">Home</a>
+        <a href="about.html" class="hover:border-b-2 hover:border-white transition">About</a>
+        <a href="diet.html" class="hover:border-b-2 hover:border-white transition">Workouts & Diet</a>
+        <a href="review2.html" class="hover:border-b-2 hover:border-white transition">Reviews</a>
+        <a href="contact4.html" class="hover:border-b-2 hover:border-white transition">Contact</a>
+        <a href="profile.html" class="hover:border-b-2 hover:border-white transition">My Profile</a>
+      </nav>
+      <button class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24 pb-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6 text-center"><i class="fas fa-tape mr-2 text-green-600"></i>Body Measurement Tracker</h2>
+      
+      <!-- Measurement Input Section -->
+      <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <i class="fas fa-user-edit text-green-600 mr-2"></i> Enter Your Measurements
+        </h3>
+        
+        <form id="measurement-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Basic Info -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Height (cm)</label>
+              <input type="number" id="height" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="e.g. 175" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Weight (kg)</label>
+              <input type="number" id="weight" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="e.g. 68" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Age</label>
+              <input type="number" id="age" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="e.g. 28" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+              <select id="gender" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Body Measurements -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Waist (cm)</label>
+              <input type="number" id="waist" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="e.g. 80">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Hips (cm)</label>
+              <input type="number" id="hips" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="e.g. 95">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Chest (cm)</label>
+              <input type="number" id="chest" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="e.g. 98">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Activity Level</label>
+              <select id="activity" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                <option value="">Select</option>
+                <option value="sedentary">Sedentary (little or no exercise)</option>
+                <option value="light">Lightly Active (light exercise 1-3 days/week)</option>
+                <option value="moderate">Moderately Active (moderate exercise 3-5 days/week)</option>
+                <option value="active">Active (hard exercise 6-7 days/week)</option>
+                <option value="very-active">Very Active (very hard exercise & physical job)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Primary Goal</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-green-50">
+                <input type="radio" name="goal" value="weight-loss" class="mr-2" required>
+                <div>
+                  <p class="font-medium">Weight Loss</p>
+                  <p class="text-sm text-gray-600">Shed excess body fat</p>
+                </div>
+              </label>
+              <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-green-50">
+                <input type="radio" name="goal" value="muscle-gain" class="mr-2">
+                <div>
+                  <p class="font-medium">Muscle Gain</p>
+                  <p class="text-sm text-gray-600">Build lean muscle</p>
+                </div>
+              </label>
+              <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-green-50">
+                <input type="radio" name="goal" value="maintenance" class="mr-2">
+                <div>
+                  <p class="font-medium">Maintenance</p>
+                  <p class="text-sm text-gray-600">Stay fit and healthy</p>
+                </div>
+              </label>
+            </div>
+          </div>
+          
+          <div class="md:col-span-2 flex justify-center">
+            <button type="submit" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition font-bold">
+              <i class="fas fa-calculator mr-2"></i>Calculate My Plan
+            </button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Results Section (Initially Hidden) -->
+      <div id="results-section" class="hidden">
+        <!-- Stats Overview -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-chart-pie text-green-600 mr-2"></i> Your Health Summary
+          </h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div class="bg-green-50 p-4 rounded-lg">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-medium">BMI</h4>
+                <span id="bmi-value" class="text-xl font-bold">--</span>
+              </div>
+              <div class="text-sm text-gray-600 mb-2" id="bmi-category">--</div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="bmi-bar" class="bg-green-600 h-2 rounded-full progress-bar" style="width: 0%"></div>
+              </div>
+            </div>
+            
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-medium">BMR</h4>
+                <span id="bmr-value" class="text-xl font-bold">--</span>
+              </div>
+              <div class="text-sm text-gray-600">Calories/day at rest</div>
+            </div>
+            
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-medium">Daily Calories</h4>
+                <span id="calories-value" class="text-xl font-bold">--</span>
+              </div>
+              <div class="text-sm text-gray-600" id="calories-goal">For your goal</div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white border border-gray-200 p-3 rounded-lg text-center measurement-card transition">
+              <div class="text-sm text-gray-600 mb-1">Waist</div>
+              <div class="font-bold" id="waist-display">-- cm</div>
+            </div>
+            <div class="bg-white border border-gray-200 p-3 rounded-lg text-center measurement-card transition">
+              <div class="text-sm text-gray-600 mb-1">Hips</div>
+              <div class="font-bold" id="hips-display">-- cm</div>
+            </div>
+            <div class="bg-white border border-gray-200 p-3 rounded-lg text-center measurement-card transition">
+              <div class="text-sm text-gray-600 mb-1">W/H Ratio</div>
+              <div class="font-bold" id="wh-ratio">--</div>
+            </div>
+            <div class="bg-white border border-gray-200 p-3 rounded-lg text-center measurement-card transition">
+              <div class="text-sm text-gray-600 mb-1">Body Type</div>
+              <div class="font-bold" id="body-type">--</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="bg-white rounded-t-xl shadow-md overflow-hidden mb-1">
+          <div class="flex border-b border-gray-200">
+            <button class="tab-btn py-4 px-6 font-medium border-b-2 border-green-600 text-green-600" data-tab="workout-plan">
+              <i class="fas fa-dumbbell mr-2"></i>Workout Plan
+            </button>
+            <button class="tab-btn py-4 px-6 font-medium text-gray-600 hover:text-green-600" data-tab="diet-plan">
+              <i class="fas fa-utensils mr-2"></i>Diet Plan
+            </button>
+            <button class="tab-btn py-4 px-6 font-medium text-gray-600 hover:text-green-600" data-tab="progress-tips">
+              <i class="fas fa-lightbulb mr-2"></i>Progress Tips
+            </button>
+          </div>
+        </div>
+        
+        <!-- Tab Contents -->
+        <div class="bg-white rounded-b-xl shadow-md p-6 mb-8">
+          <!-- Workout Plan Tab -->
+          <div id="workout-plan" class="tab-content active">
+            <h3 class="text-xl font-bold mb-4">Personalized Workout Plan</h3>
+            <div id="workout-content">
+              <!-- Content will be generated by JavaScript -->
+            </div>
+          </div>
+          
+          <!-- Diet Plan Tab -->
+          <div id="diet-plan" class="tab-content">
+            <h3 class="text-xl font-bold mb-4">Recommended Nutrition Plan</h3>
+            <div id="diet-content">
+              <!-- Content will be generated by JavaScript -->
+            </div>
+          </div>
+          
+          <!-- Progress Tips Tab -->
+          <div id="progress-tips" class="tab-content">
+            <h3 class="text-xl font-bold mb-4">Tips for Optimal Progress</h3>
+            <div id="tips-content">
+              <!-- Content will be generated by JavaScript -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Save Progress -->
+        <div class="bg-white rounded-xl shadow-md p-6 text-center">
+          <h3 class="text-xl font-bold mb-4">Track Your Progress Over Time</h3>
+          <p class="text-gray-600 mb-6">Save these measurements to monitor your fitness journey and see your improvements.</p>
+          <button id="save-btn" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition font-bold">
+            <i class="fas fa-save mr-2"></i>Save to My Profile
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h4 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-dumbbell mr-2"></i>FitnessCare
+          </h4>
+          <p class="text-gray-400">Your complete fitness solution for a healthier, happier life.</p>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">Quick Links</h5>
+          <ul class="space-y-2">
+            <li><a href="home3.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+            <li><a href="diet.html" class="text-gray-400 hover:text-white transition">Programs</a></li>
+            <li><a href="review2.html" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">Support</h5>
+          <ul class="space-y-2">
+            <li><a href="contact4.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">Connect With Us</h5>
+          <div class="flex space-x-4 mb-4">
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 FitnessCare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab functionality
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and contents
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.classList.remove('border-b-2', 'border-green-600', 'text-green-600');
+          btn.classList.add('text-gray-600', 'hover:text-green-600');
+        });
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        
+        // Add active class to clicked button and corresponding content
+        button.classList.add('border-b-2', 'border-green-600', 'text-green-600');
+        button.classList.remove('text-gray-600', 'hover:text-green-600');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Form submission
+    document.getElementById('measurement-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const height = parseFloat(document.getElementById('height').value);
+      const weight = parseFloat(document.getElementById('weight').value);
+      const age = parseInt(document.getElementById('age').value);
+      const gender = document.getElementById('gender').value;
+      const waist = parseFloat(document.getElementById('waist').value) || 0;
+      const hips = parseFloat(document.getElementById('hips').value) || 0;
+      const chest = parseFloat(document.getElementById('chest').value) || 0;
+      const activity = document.getElementById('activity').value;
+      const goal = document.querySelector('input[name="goal"]:checked').value;
+      
+      // Calculate BMI
+      const bmi = weight / ((height/100) ** 2);
+      let bmiCategory = '';
+      if (bmi < 18.5) bmiCategory = 'Underweight';
+      else if (bmi < 25) bmiCategory = 'Normal weight';
+      else if (bmi < 30) bmiCategory = 'Overweight';
+      else bmiCategory = 'Obese';
+      
+      // Calculate BMR (Mifflin-St Jeor Equation)
+      let bmr;
+      if (gender === 'male') {
+        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+      } else {
+        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+      }
+      
+      // Calculate TDEE based on activity level
+      let activityMultiplier;
+      switch(activity) {
+        case 'sedentary': activityMultiplier = 1.2; break;
+        case 'light': activityMultiplier = 1.375; break;
+        case 'moderate': activityMultiplier = 1.55; break;
+        case 'active': activityMultiplier = 1.725; break;
+        case 'very-active': activityMultiplier = 1.9; break;
+        default: activityMultiplier = 1.2;
+      }
+      const tdee = bmr * activityMultiplier;
+      
+      // Calculate calorie goal based on primary goal
+      let calorieGoal;
+      let calorieText;
+      switch(goal) {
+        case 'weight-loss':
+          calorieGoal = tdee - 500;
+          calorieText = `For healthy weight loss (${Math.round(calorieGoal-200)}-${Math.round(calorieGoal+200)} kcal/day)`;
+          break;
+        case 'muscle-gain':
+          calorieGoal = tdee + 300;
+          calorieText = `For muscle gain (${Math.round(calorieGoal-200)}-${Math.round(calorieGoal+200)} kcal/day)`;
+          break;
+        default:
+          calorieGoal = tdee;
+          calorieText = `For maintenance (${Math.round(calorieGoal-200)}-${Math.round(calorieGoal+200)} kcal/day)`;
+      }
+      
+      // Calculate waist-hip ratio
+      const whRatio = waist / hips;
+      let bodyType = '';
+      if (gender === 'male') {
+        if (whRatio > 0.9) bodyType = 'Apple (higher risk)';
+        else bodyType = 'Pear (lower risk)';
+      } else {
+        if (whRatio > 0.85) bodyType = 'Apple (higher risk)';
+        else bodyType = 'Pear (lower risk)';
+      }
+      
+      // Update results display
+      document.getElementById('bmi-value').textContent = bmi.toFixed(1);
+      document.getElementById('bmi-category').textContent = bmiCategory;
+      document.getElementById('bmr-value').textContent = Math.round(bmr);
+      document.getElementById('calories-value').textContent = Math.round(calorieGoal);
+      document.getElementById('calories-goal').textContent = calorieText;
+      document.getElementById('waist-display').textContent = waist + ' cm';
+      document.getElementById('hips-display').textContent = hips + ' cm';
+      document.getElementById('wh-ratio').textContent = whRatio.toFixed(2);
+      document.getElementById('body-type').textContent = bodyType;
+      
+      // Animate BMI bar
+      let bmiPercent;
+      if (bmi < 18.5) bmiPercent = (bmi / 18.5) * 33;
+      else if (bmi < 25) bmiPercent = 33 + ((bmi - 18.5) / (25 - 18.5)) * 33;
+      else if (bmi < 30) bmiPercent = 66 + ((bmi - 25) / (30 - 25)) * 33;
+      else bmiPercent = Math.min(100, 100 + (bmi - 30) * 2);
+      
+      document.getElementById('bmi-bar').style.width = bmiPercent + '%';
+      
+      // Generate workout plan
+      generateWorkoutPlan(goal, activity, gender);
+      
+      // Generate diet plan
+      generateDietPlan(goal, calorieGoal);
+      
+      // Generate tips
+      generateProgressTips(goal, bmiCategory);
+      
+      // Show results section
+      document.getElementById('results-section').classList.remove('hidden');
+      
+      // Scroll to results
+      document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Generate workout plan based on user inputs
+    function generateWorkoutPlan(goal, activity, gender) {
+      const workoutContent = document.getElementById('workout-content');
+      let plan = '';
+      
+      if (goal === 'weight-loss') {
+        plan = `
+          <div class="mb-6">
+            <h4 class="font-bold text-lg mb-2 text-green-600">Cardio Focus Plan (6 days/week)</h4>
+            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Monday/Wednesday/Friday:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>30-45 min HIIT or moderate-intensity cardio</li>
+                <li>15 min core workout (planks, leg raises, Russian twists)</li>
+                <li>10 min stretching</li>
+              </ul>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Tuesday/Thursday:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>45-60 min steady-state cardio (running, cycling, swimming)</li>
+                <li>10 min stretching</li>
+              </ul>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h5 class="font-medium mb-2">Saturday:</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Active recovery (yoga, walking, light swimming)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <h5 class="font-bold mb-2 flex items-center"><i class="fas fa-dumbbell mr-2"></i>Recommended Strength Work (2x/week)</h5>
+            <p>Include full-body strength training to preserve muscle mass while losing fat:</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Squats: 3 sets x 12 reps</li>
+              <li>Push-ups: 3 sets to failure</li>
+              <li>Rows: 3 sets x 10 reps</li>
+              <li>Plank: 3 sets x 30-60 sec</li>
+            </ul>
+          </div>
+        `;
+      } 
+      else if (goal === 'muscle-gain') {
+        plan = `
+          <div class="mb-6">
+            <h4 class="font-bold text-lg mb-2 text-green-600">Strength Training Plan (5 days/week)</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Monday: Chest & Triceps</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Bench Press: 4x6-8</li>
+                  <li>Incline Dumbbell Press: 3x8-10</li>
+                  <li>Dips: 3x8-10</li>
+                  <li>Tricep Extensions: 3x10-12</li>
+                </ul>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Tuesday: Back & Biceps</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Pull-ups: 4x6-8</li>
+                  <li>Bent-over Rows: 3x8-10</li>
+                  <li>Lat Pulldown: 3x10-12</li>
+                  <li>Barbell Curls: 3x8-10</li>
+                </ul>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Thursday: Legs</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Squats: 4x6-8</li>
+                  <li>Romanian Deadlifts: 3x8-10</li>
+                  <li>Lunges: 3x10-12</li>
+                  <li>Calf Raises: 3x15-20</li>
+                </ul>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Friday: Shoulders & Arms</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Overhead Press: 4x6-8</li>
+                  <li>Lateral Raises: 3x10-12</li>
+                  <li>Hammer Curls: 3x8-10</li>
+                  <li>Skull Crushers: 3x8-10</li>
+                </ul>
+              </div>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h5 class="font-bold mb-2 flex items-center"><i class="fas fa-running mr-2"></i>Recommended Cardio (2x/week)</h5>
+              <p>20-30 minutes of moderate cardio to maintain cardiovascular health without interfering with muscle growth.</p>
+            </div>
+          </div>
+        `;
+      } 
+      else {
+        plan = `
+          <div class="mb-6">
+            <h4 class="font-bold text-lg mb-2 text-green-600">Balanced Fitness Plan (5 days/week)</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Monday: Full Body Strength</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Squats: 3x10-12</li>
+                  <li>Push-ups: 3x10-15</li>
+                  <li>Rows: 3x10-12</li>
+                  <li>Plank: 3x30-45 sec</li>
+                </ul>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Tuesday: Cardio & Core</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>30 min moderate cardio</li>
+                  <li>15 min core circuit</li>
+                </ul>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Thursday: Upper Body</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Bench Press: 3x8-10</li>
+                  <li>Pull-ups: 3x6-8</li>
+                  <li>Shoulder Press: 3x10-12</li>
+                </ul>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Friday: Lower Body & Mobility</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Deadlifts: 3x8-10</li>
+                  <li>Lunges: 3x10-12</li>
+                  <li>20 min yoga/stretching</li>
+                </ul>
+              </div>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h5 class="font-bold mb-2 flex items-center"><i class="fas fa-heartbeat mr-2"></i>Active Recovery</h5>
+              <p>Include 1-2 days of active recovery (walking, swimming, yoga) to maintain mobility and prevent burnout.</p>
+            </div>
+          </div>
+        `;
+      }
+      
+      workoutContent.innerHTML = plan;
+    }
+    
+    // Generate diet plan based on user inputs
+    function generateDietPlan(goal, calorieGoal) {
+      const dietContent = document.getElementById('diet-content');
+      let plan = '';
+      const protein = goal === 'muscle-gain' ? '1.6-2.2g per kg body weight' : '1.2-1.6g per kg body weight';
+      
+      if (goal === 'weight-loss') {
+        plan = `
+          <div class="mb-6">
+            <h4 class="font-bold text-lg mb-2 text-green-600">Fat Loss Nutrition Plan</h4>
+            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Macronutrient Breakdown:</h5>
+              <ul class="list-disc pl-5 space-y-1 mb-3">
+                <li><strong>Protein:</strong> ${protein} (preserves muscle mass)</li>
+                <li><strong>Carbs:</strong> 30-40% of calories (focus on fiber-rich sources)</li>
+                <li><strong>Fats:</strong> 25-35% of calories (healthy fats)</li>
+              </ul>
+              <p>Target: ${Math.round(calorieGoal-200)}-${Math.round(calorieGoal+200)} kcal/day</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Sample Meal Plan</h5>
+                <p class="font-semibold">Breakfast:</p>
+                <p>3 egg whites + 1 whole egg, 1/2 avocado, spinach</p>
+                <p class="font-semibold mt-2">Lunch:</p>
+                <p>Grilled chicken (150g), quinoa (1/2 cup), roasted vegetables</p>
+                <p class="font-semibold mt-2">Dinner:</p>
+                <p>Salmon (150g), asparagus, sweet potato (1/2 medium)</p>
+                <p class="font-semibold mt-2">Snacks:</p>
+                <p>Greek yogurt with berries, handful of almonds</p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Key Recommendations</h5>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Prioritize protein at every meal</li>
+                  <li>Fill half your plate with non-starchy vegetables</li>
+                  <li>Drink 2-3L water daily</li>
+                  <li>Limit added sugars and processed foods</li>
+                  <li>Practice mindful eating</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        `;
+      } 
+      else if (goal === 'muscle-gain') {
+        plan = `
+          <div class="mb-6">
+            <h4 class="font-bold text-lg mb-2 text-green-600">Muscle Building Nutrition Plan</h4>
+            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+              <h5 class="font-medium mb-2">Macronutrient Breakdown:</h5>
+              <ul class="list-disc pl-5 space-y-1 mb-3">
+                <li><strong>Protein:</strong> ${protein} (supports muscle growth)</li>
+                <li><strong>Carbs:</strong> 40-50% of calories (fuels workouts)</li>
+                <li><strong>Fats:</strong> 20-30% of calories (hormone support)</li>
+              </ul>
+              <p>Target: ${Math.round(calorieGoal-200)}-${Math.round(calorieGoal+200)} kcal/day</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h5 class="font-medium mb-2">Sample Meal Plan</h5>
+                <p class="font-semibold">Breakfast:</p>
+                <p>Oatmeal (1 cup) with whey protein, banana, peanut butter</p>
+                <p class="font-semibold mt-2">Lunch:</p>
+                <p>Lean beef (200g), brown rice (1 cup), mixed vegetables</p>
+                <p class="font-semibold mt-2">Dinner:</p
